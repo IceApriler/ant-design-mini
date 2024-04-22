@@ -1,8 +1,10 @@
 {
+  "data": undefined,
   "methods": {
     "catchTap": [Function],
     "onTap": [Function],
   },
+  "mixins": undefined,
   "props": {
     "arrow": false,
     "brief": "",

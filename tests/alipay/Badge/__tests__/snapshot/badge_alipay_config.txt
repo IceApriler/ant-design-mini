@@ -1,5 +1,7 @@
 {
+  "data": undefined,
   "methods": undefined,
+  "mixins": undefined,
   "props": {
     "bgColor": "",
     "position": "top-right",

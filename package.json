@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "2.29.3",
+  "version": "2.30.0",
   "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
   "miniprogram": "compiled/wechat/src",
   "scripts": {
@@ -54,7 +54,7 @@
     "@types/through2": "^2.0.39",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
-    "@vitest/coverage-istanbul": "^1.1.1",
+    "@vitest/coverage-istanbul": "^1.5.0",
     "antd": "^4.20.7",
     "auto-changelog": "^2.4.0",
     "chalk": "^4.1.0",
@@ -97,7 +97,7 @@
     "stylelint-config-standard": "^24.0.0",
     "tsx": "^4.6.2",
     "typescript": "^4.0.0",
-    "vitest": "^1.1.1",
+    "vitest": "^1.5.0",
     "yorkie": "^2.0.0"
   },
   "files": [

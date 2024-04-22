@@ -39,16 +39,29 @@ function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
   };
 }
 
-type ComponentInstance<Props, Methods> = {};
+type ComponentInstance<Props, Methods, Mixins, Data, InstanceMethods> = unknown;
 
-function ComponentImpl<Props, Methods = unknown>(
+function ComponentImpl<
+  Props,
+  Methods = unknown,
+  Mixins = unknown,
+  Data = unknown,
+  InstanceMethods = unknown
+>(
   defaultProps: Props,
-  methods?: Methods & ThisType<ComponentInstance<Props, Methods>>
+  methods?: Methods &
+    ThisType<ComponentInstance<Props, Methods, Mixins, Data, InstanceMethods>>,
+  mixins?: Mixins & any,
+  data?: Data & any,
+  instanceMethods?: InstanceMethods & any
 ) {
 
   Component({
     props: removeNullProps(mergeDefaultProps(defaultProps)),
     methods,
+    mixins,
+    data,
+    ...instanceMethods,
   });
 }
 
@@ -113,6 +126,23 @@ export function triggerCatchEvent(instance: any, eventName: string, e?: any) {
     props[eventName](fmtEvent(props, e));
   }
 
+}
+
+export function getValueFromProps(instance: any, propName?: string | string[]) {
+  let value;
+  const props = instance.props;
+  if (!propName) {
+    return props;
+  }
+  if (typeof propName === 'string') {
+    value = props[propName];
+  }
+  if (Array.isArray(propName)) {
+    value = propName.map((name) => props[name]);
+  }
+
+
+  return value;
 }
 
 export { ComponentImpl as Component };
